@@ -46,39 +46,57 @@ st.markdown("""
         font-weight: bold;
         margin-bottom: 20px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        color: #333333;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# قاعدة البيانات: 10 أسئلة حقيقية مقسمة وموزعة بدقة
+# قاعدة البيانات الشاملة: تم تقسيم وتوزيع جميع دروس أولى ثانوي آداب بدقة
 data = {
     "المجال الأول: بيئة التعامل مع الحاسوب": {
-        "تجميع الحاسوب وأنظمة التشغيل": [
+        "تجميع الحاسوب وعتاده الداخلي": [
             {"question": "أين يتم تخزين البيانات والبرامج الجاري تنفيذها بشكل مؤقت، وتزول بمجرد انقطاع التيار الكهربائي؟", "options": ["القرص الصلب (Hard Disk)", "الذاكرة الحية (RAM)", "الذاكرة الميتة (ROM)"], "answer": "الذاكرة الحية (RAM)"},
             {"question": "ما هو المكون الذي يمثل 'عقل' الحاسوب ويقوم بجميع العمليات الحسابية والمنطقية وتسيير البيانات؟", "options": ["المعالج (CPU)", "اللوحة الأم (Motherboard)", "بطاقة الشاشة (GPU)"], "answer": "المعالج (CPU)"},
+            {"question": "أي من المكونات التالية يعتبر وحدة إدخال فقط للبيانات في الحاسوب؟", "options": ["الشاشة", "لوحة المفاتيح (Keyboard)", "الطابعة"], "answer": "لوحة المفاتيح (Keyboard)"}
+        ],
+        "أنظمة التشغيل وحماية الحاسوب": [
             {"question": "أي مما يلي لا يعتبر نظام تشغيل (Operating System) للحواسيب أو الهواتف؟", "options": ["Windows 10", "Linux", "Microsoft Word"], "answer": "Microsoft Word"},
-            {"question": "ما هي الوظيفة الأساسية لبرامج مضادات الفيروسات (Antivirus)؟", "options": ["Antivirus حماية وتطهير الجهاز", "تسريع تصفح الإنترنت", "تنسيق النصوص والملفات"], "answer": "Antivirus حماية وتطهير الجهاز"}
+            {"question": "ما هي الوظيفة الأساسية لبرامج مضادات الفيروسات (Antivirus)؟", "options": ["حماية وتطهير الجهاز من البرامج الخبيثة", "تسريع تصفح الإنترنت", "تنسيق النصوص والملفات"], "answer": "حماية وتطهير الجهاز من البرامج الخبيثة"},
+            {"question": "تُستخدم 'لوحة التحكم' (Control Panel) في نظام الويندوز لـ:", "options": ["كتابة البحوث المدرسية", "ضبط إعدادات النظام والعتاد والشبكات", "تصفح مواقع الويب"], "answer": "ضبط إعدادات النظام والعتاد والشبكات"}
+        ],
+        "الشبكات المحلية (LAN)": [
+            {"question": "ما هي الفائدة الأساسية من ربط الحواسيب داخل مخبر الإعلام الآلي في شبكة محلية (LAN)؟", "options": ["زيادة حجم الشاشة", "مشاركة الملفات والموارد مثل الطابعات", "توليد الطاقة الكهربائية"], "answer": "مشاركة الملفات والموارد مثل الطابعات"}
         ]
     },
     "المجال الثاني: المكتبية (Bureautique)": {
-        "تطبيقات معالج النصوص والمجدول": [
+        "معالج النصوص (Microsoft Word)": [
             {"question": "في برنامج معالج النصوص MS Word، ما هو اختصار لوحة المفاتيح المستخدم لنسخ (Copy) نص محدد؟", "options": ["Ctrl + V", "Ctrl + X", "Ctrl + C"], "answer": "Ctrl + C"},
-            {"question": "ما هو البرنامج المكتبي الأنسب لإجراء العمليات الحسابية المعقدة، تنظيم الميزانيات، ورسم المخططات البيانية؟", "options": ["Microsoft Excel (المجدول)", "Microsoft PowerPoint", "Microsoft Word"], "answer": "Microsoft Excel (المجدول)"},
-            {"question": "عند استخدام اختصار لوحة المفاتيح (Ctrl + Z) في برامج المكتبية، ما هي العملية التي يتم تنفيذها؟", "options": ["حفظ الملف تلقائياً", "التراجع عن آخر خطوة قام بها المستخدم", "فتح ملف جديد فارغ"], "answer": "التراجع عن آخر خطوة قام بها المستخدم"}
+            {"question": "عند استخدام اختصار لوحة المفاتيح (Ctrl + Z) في برامج المكتبية، ما هي العملية التي يتم تنفيذها؟", "options": ["حفظ الملف تلقائياً", "التراجع عن آخر خطوة قام بها المستخدم", "فتح ملف جديد فارغ"], "answer": "التراجع عن آخر خطوة قام بها المستخدم"},
+            {"question": "لإدراج جدول أو صورة داخل مستند Word، نتوجه إلى تبويب:", "options": ["الصفحة الرئيسية (Home)", "إدراج (Insert)", "تخطيط الصفحة (Layout)"], "answer": "إدراج (Insert)"}
+        ],
+        "المجدول وجداول البيانات (Microsoft Excel)": [
+            {"question": "ما هو البرنامج المكتبي الأنسب لإجراء العمليات الحسابية الآلية، تنظيم الميزانيات، ورسم المخططات البيانية؟", "options": ["Microsoft Excel", "Microsoft PowerPoint", "Microsoft Word"], "answer": "Microsoft Excel"},
+            {"question": "في برنامج Excel، تسمى نقطة تقاطع العمود مع السطر بـ:", "options": ["الخلية (Cell)", "المخطط", "الصيغة"], "answer": "الخلية (Cell)"}
+        ],
+        "العروض التقديمية (Microsoft PowerPoint)": [
+            {"question": "يُستخدم برنامج PowerPoint أساساً من أجل:", "options": ["إنشاء وتصميم شرائح تفاعلية لعرض الدروس والبحوث", "تسيير قواعد البيانات الضخمة", "تثبيت أنظمة التشغيل"], "answer": "إنشاء وتصميم شرائح تفاعلية لعرض الدروس والبحوث"}
         ]
     },
     "المجال الثالث: تقنيات الويب": {
         "لغة HTML وتصميم الصفحات": [
             {"question": "في لغة HTML الأساسية لإنشاء صفحات الويب، ما هو الوسم (Tag) المستخدم لإدراج عنوان رئيسي عريض وكبير؟", "options": ["<p>", "<h1>", "<a>"], "answer": "<h1>"},
-            {"question": "الوسم <p> في لغة HTML يُستخدم لبناء وإدراج عنصر مهم في الصفحة، ما هو؟", "options": ["فقرة نصية (Paragraph)", "رابط تشعبي لموقع آخر", "صورة متحركة أو ثابتة"], "answer": "فقرة نصية (Paragraph)"},
-            {"question": "أي من البرامج التالية يُصنف كـ 'متصفح إنترنت' (Web Browser) يُستخدم لفتح وعرض صفحات الويب الرقمية؟", "options": ["Google Chrome", "Google Search", "Gmail"], "answer": "Google Chrome"}
+            {"question": "الوسم <p> في لغة HTML يُستخدم لبناء وإدراج عنصر مهم في الصفحة، ما هو؟", "options": ["فقرة نصية (Paragraph)", "رابط تشعبي لموقع آخر", "صورة متحركة أو ثابتة"], "answer": "فقرة نصية (Paragraph)"}
+        ],
+        "متصفحات الإنترنت والبحث الآمن": [
+            {"question": "أي من البرامج التالية يُصنف كـ 'متصفح إنترنت' (Web Browser) يُستخدم لفتح وعرض صفحات الويب الرقمية؟", "options": ["Google Chrome", "Google Search", "Gmail"], "answer": "Google Chrome"},
+            {"question": "لإرسال رسالة إلكترونية رسمية مرفقة بملف رقمي إلى الأستاذة، نستخدم خدمة:", "options": ["محرك البحث", "البريد الإلكتروني (Email)", "محرر النصوص"], "answer": "البريد الإلكتروني (Email)"}
         ]
     }
 }
 
 # إدارة التنقل بين الواجهات باستخدام session_state
 if "step" not in st.session_state:
-    st.session_state.step = "main"  # الواجهة الافتراضية
+    st.session_state.step = "main"
     st.session_state.selected_field = None
     st.session_state.selected_lesson = None
     st.session_state.current_q = 0
@@ -102,7 +120,7 @@ if st.session_state.step == "main":
             st.session_state.step = "lessons"
             st.rerun()
 
-# --- الواجهة الثانية: شاشة اختيار الدروس ---
+# --- الواجهة الثانية: شاشة عرض الدروس المتعددة ---
 elif st.session_state.step == "lessons":
     st.markdown(f"""
         <div class="main-title">
@@ -110,7 +128,7 @@ elif st.session_state.step == "lessons":
         </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("<h3 style='text-align: right; color: #1e3c72;'>📌 الخطوة 2: اختر المحور الدراسي لبدء الاختبار التفاعلي:</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: right; color: #1e3c72;'>📌 الخطوة 2: اختر الدرس الذي ترغب في مراجعته الآن:</h3>", unsafe_allow_html=True)
     st.write("")
     
     دروس = data[st.session_state.selected_field]
@@ -122,7 +140,8 @@ elif st.session_state.step == "lessons":
             st.session_state.score = 0
             st.rerun()
             
-    if st.button("⬅️ العودة للمجالات الرئيسية", type="secondary"):
+    st.write("")
+    if st.button("⬅️ العودة للمجالات الرئيسية", type="secondary", use_container_width=True):
         st.session_state.step = "main"
         st.rerun()
 
@@ -139,8 +158,7 @@ elif st.session_state.step == "quiz":
         </div>
     """, unsafe_allow_html=True)
     
-    # عرض السؤال الحالي فقط في بطاقة مخصصة
-    q_data =  الأسئلة[q_index]
+    q_data = الأسئلة[q_index]
     st.markdown(f'<div class="question-box">{q_data["question"]}</div>', unsafe_allow_html=True)
     
     # اختيار الإجابة
@@ -148,13 +166,10 @@ elif st.session_state.step == "quiz":
     
     st.write("---")
     
-    # زر الانتقال للسؤال التالي
     if st.button("التالي ➡️", use_container_width=True):
-        # احتساب النقاط
         if اختيار == q_data["answer"]:
             st.session_state.score += 1
             
-        # الانتقال للسؤال القادم أو صفحة النتيجة
         if q_index + 1 < عدد_الأسئلة:
             st.session_state.current_q += 1
             st.rerun()
@@ -184,18 +199,5 @@ elif st.session_state.step == "result":
         st.info(f"✨ مستوى ممتاز! لقد نجحت بتفوق وأجبت على: {score} من {عدد_الأسئلة} (نسبة {percentage:.0f}%)")
         st.snow()
     elif percentage >= 50:
-        st.warning(f"👍 مستوى مقبول (ناجح): {score} من {عدد_الأسئلة} (نسبة {percentage:.0f}%) - نقترح إعادة المحاولة للحصول على العلامة الكاملة.")
-    else:
-        st.error(f"📚 تحتاج إلى مراجعة كراسك والتركيز أكثر. النتيجة الحالية: {score} من {عدد_الأسئلة} (نسبة {percentage:.0f}%)")
-        
-    st.write("---")
-    
-    # زر إعادة التحدي من البداية
-    if st.button("🔄 العودة إلى الواجهة الرئيسية وتجربة تحدي آخر", use_container_width=True, type="primary"):
-        st.session_state.step = "main"
-        st.session_state.selected_field = None
-        st.session_state.selected_lesson = None
-        st.session_state.current_q = 0
-        st.session_state.score = 0
-        st.rerun()
+
 
