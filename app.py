@@ -1,32 +1,20 @@
 import streamlit as st
 
-# إعدادات الصفحة الاحترافية
+# --- 1. إعدادات المتصفح الأساسية ---
 st.set_page_config(
-    page_title="منصة تحدي المعلوماتية 1AS",
+    page_title="Informatics Challenge 1AS",
     page_icon="⚡",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
 
-# تصميم واجهة مبهرة متغيرة تدعم اللغة العربية (RTL)
+# --- 2. تصميم الواجهة والألوان باستخدام CSS لتدعم اللغة العربية ---
 st.markdown("""
     <style>
     @import url('https://googleapis.com');
-    
-    html, body, [data-testid="stSidebarNav"] {
-        font-family: 'Cairo', sans-serif;
-    }
-    
-    div[data-testid="stMarkdownContainer"] {
-        text-align: right;
-        direction: rtl;
-    }
-    
-    div[data-testid="stWidgetLabel"] {
-        text-align: right;
-        direction: rtl;
-    }
-    
+    html, body, [data-testid="stSidebarNav"] { font-family: 'Cairo', sans-serif; }
+    div[data-testid="stMarkdownContainer"] { text-align: right; direction: rtl; }
+    div[data-testid="stWidgetLabel"] { text-align: right; direction: rtl; }
     .main-title {
         background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
         color: white;
@@ -36,7 +24,6 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         margin-bottom: 30px;
     }
-    
     .question-box {
         background-color: #f8f9fa;
         border-right: 6px solid #2196F3;
@@ -51,7 +38,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# قاعدة البيانات الشاملة: تم تقسيم وتوزيع جميع دروس أولى ثانوي آداب بدقة
+# --- 3. قاعدة البيانات الرقمية (كافة المجالات والدروس والأسئلة لـ 1 ثانوي) ---
 data = {
     "المجال الأول: بيئة التعامل مع الحاسوب": {
         "تجميع الحاسوب وعتاده الداخلي": [
@@ -70,7 +57,7 @@ data = {
     },
     "المجال الثاني: المكتبية (Bureautique)": {
         "معالج النصوص (Microsoft Word)": [
-            {"question": "في برنامج معالج النصوص MS Word، ما هو اختصار لوحة المفاتيح المستخدم لنسخ (Copy) نص محدد؟", "options": ["Ctrl + V", "Ctrl + X", "Ctrl + C"], "answer": "Ctrl + C"},
+            {"question": "في برنامج معالج النصوص MS Word، ما هو اختصار لوحة المفاتيح المستخدم لنسخ (Copy) نص مححدد؟", "options": ["Ctrl + V", "Ctrl + X", "Ctrl + C"], "answer": "Ctrl + C"},
             {"question": "عند استخدام اختصار لوحة المفاتيح (Ctrl + Z) في برامج المكتبية، ما هي العملية التي يتم تنفيذها؟", "options": ["حفظ الملف تلقائياً", "التراجع عن آخر خطوة قام بها المستخدم", "فتح ملف جديد فارغ"], "answer": "التراجع عن آخر خطوة قام بها المستخدم"},
             {"question": "لإدراج جدول أو صورة داخل مستند Word، نتوجه إلى تبويب:", "options": ["الصفحة الرئيسية (Home)", "إدراج (Insert)", "تخطيط الصفحة (Layout)"], "answer": "إدراج (Insert)"}
         ],
@@ -93,8 +80,7 @@ data = {
         ]
     }
 }
-
-# إدارة التنقل بين الواجهات باستخدام session_state
+# --- 4. تهيئة ذاكرة الموقع (session_state) ---
 if "step" not in st.session_state:
     st.session_state.step = "main"
     st.session_state.selected_field = None
@@ -102,7 +88,7 @@ if "step" not in st.session_state:
     st.session_state.current_q = 0
     st.session_state.score = 0
 
-# --- الواجهة الأولى: الشاشة الرئيسية للمجالات ---
+# --- 5. الواجهة الأولى: الشاشة الرئيسية (اختيار المجال الدراسي) ---
 if st.session_state.step == "main":
     st.markdown("""
         <div class="main-title">
@@ -114,13 +100,13 @@ if st.session_state.step == "main":
     st.markdown("<h3 style='text-align: right; color: #1e3c72;'>📌 الخطوة 1: اختر المجال الدراسي المستهدف:</h3>", unsafe_allow_html=True)
     st.write("")
     
-    for مجال in data.keys():
-        if st.button(f"📂 {مجال}", use_container_width=True):
-            st.session_state.selected_field = مجال
+    for field_name in data.keys():
+        if st.button(f"📂 {field_name}", use_container_width=True):
+            st.session_state.selected_field = field_name
             st.session_state.step = "lessons"
             st.rerun()
 
-# --- الواجهة الثانية: شاشة عرض الدروس المتعددة ---
+# --- 6. الواجهة الثانية: شاشة عرض دروس المجال المختار ---
 elif st.session_state.step == "lessons":
     st.markdown(f"""
         <div class="main-title">
@@ -131,10 +117,10 @@ elif st.session_state.step == "lessons":
     st.markdown("<h3 style='text-align: right; color: #1e3c72;'>📌 الخطوة 2: اختر الدرس الذي ترغب في مراجعته الآن:</h3>", unsafe_allow_html=True)
     st.write("")
     
-    دروس = data[st.session_state.selected_field]
-    for درس in دروس.keys():
-        if st.button(f"📝 {درس}", use_container_width=True):
-            st.session_state.selected_lesson = درس
+    lessons = data[st.session_state.selected_field]
+    for lesson_name in lessons.keys():
+        if st.button(f"📝 {lesson_name}", use_container_width=True):
+            st.session_state.selected_lesson = lesson_name
             st.session_state.step = "quiz"
             st.session_state.current_q = 0
             st.session_state.score = 0
@@ -145,44 +131,43 @@ elif st.session_state.step == "lessons":
         st.session_state.step = "main"
         st.rerun()
 
-# --- الواجهة الثالثة: شاشة عرض الأسئلة (سؤال بسؤال) ---
+# --- 7. الواجهة الثالثة: شاشة التحدي التفاعلي (سؤال واحد في كل واجهة) ---
 elif st.session_state.step == "quiz":
-    الأسئلة = data[st.session_state.selected_field][st.session_state.selected_lesson]
-    عدد_الأسئلة = len(الأسئلة)
+    questions_list = data[st.session_state.selected_field][st.session_state.selected_lesson]
+    total_q = len(questions_list)
     q_index = st.session_state.current_q
     
     st.markdown(f"""
         <div class="main-title" style="padding: 15px;">
             <h2 style="margin:0; font-size: 20px;">✏️ تحدي: {st.session_state.selected_lesson}</h2>
-            <p style="margin:5px 0 0 0; font-size: 14px;">السؤال {q_index + 1} من أصل {عدد_الأسئلة}</p>
+            <p style="margin:5px 0 0 0; font-size: 14px;">السؤال {q_index + 1} من أصل {total_q}</p>
         </div>
     """, unsafe_allow_html=True)
     
-    q_data = الأسئلة[q_index]
+    q_data = questions_list[q_index]
     st.markdown(f'<div class="question-box">{q_data["question"]}</div>', unsafe_allow_html=True)
     
-    # اختيار الإجابة
-    اختيار = st.radio("اختر الإجابة التي تراها صحيحة:", q_data["options"], key=f"quiz_q_{q_index}")
+    user_choice = st.radio("اختر الإجابة التي تراها صحيحة:", q_data["options"], key=f"quiz_q_{q_index}")
     
     st.write("---")
     
     if st.button("التالي ➡️", use_container_width=True):
-        if اختيار == q_data["answer"]:
+        if user_choice == q_data["answer"]:
             st.session_state.score += 1
             
-        if q_index + 1 < عدد_الأسئلة:
+        if q_index + 1 < total_q:
             st.session_state.current_q += 1
             st.rerun()
         else:
             st.session_state.step = "result"
             st.rerun()
 
-# --- الواجهة الرابعة: شاشة لوحة النتائج والتقييم النهائي ---
+# --- 8. الواجهة الرابعة: شاشة النتيجة والتقييم النهائي ---
 elif st.session_state.step == "result":
-    الأسئلة = data[st.session_state.selected_field][st.session_state.selected_lesson]
-    عدد_الأسئلة = len(الأسئلة)
-    score = st.session_state.score
-    percentage = (score / عدد_الأسئلة) * 100
+    questions_list = data[st.session_state.selected_field][st.session_state.selected_lesson]
+    total_q = len(questions_list)
+    final_score = st.session_state.score
+    percentage = (final_score / total_q) * 100
     
     st.markdown("""
         <div class="main-title">
@@ -193,11 +178,24 @@ elif st.session_state.step == "result":
     st.write("")
     
     if percentage == 100:
-        st.success(f"🏆 مستوى عبقري ومبهر! العلامة كاملة: {score} من {عدد_الأسئلة} (نسبة {percentage:.0f}%)")
+        st.success(f"🏆 مستوى عبقري ومبهر! العلامة كاملة: {final_score} من {total_q} (نسبة {percentage:.0f}%)")
         st.balloons()
     elif percentage >= 70:
-        st.info(f"✨ مستوى ممتاز! لقد نجحت بتفوق وأجبت على: {score} من {عدد_الأسئلة} (نسبة {percentage:.0f}%)")
+        st.info(f"✨ مستوى ممتاز! لقد نجحت بتفوق وأجبت على: {final_score} من {total_q} (نسبة {percentage:.0f}%)")
         st.snow()
     elif percentage >= 50:
+        st.warning(f"👍 مستوى مقبول (ناجح): {final_score} من {total_q} (نسبة {percentage:.0f}%) - نقترح إعادة المحاولة!")
+    else:
+        st.error(f"📚 تحتاج إلى مراجعة كراسك والتركيز أكثر. النتيجة الحالية: {final_score} من {total_q} (نسبة {percentage:.0f}%)")
+        
+    st.write("---")
+    
+    if st.button("🔄 العودة إلى الواجهة الرئيسية وتجربة تحدي آخر", use_container_width=True, type="primary"):
+        st.session_state.step = "main"
+        st.session_state.selected_field = None
+        st.session_state.selected_lesson = None
+        st.session_state.current_q = 0
+        st.session_state.score = 0
+        st.rerun()
 
 
