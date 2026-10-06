@@ -15,8 +15,6 @@ st.markdown("""
     html, body, [data-testid="stSidebarNav"] { font-family: 'Cairo', sans-serif; }
     div[data-testid="stMarkdownContainer"] { text-align: right; direction: rtl; }
     div[data-testid="stWidgetLabel"] { text-align: right; direction: rtl; }
-    
-    /* تصميم بطاقة اسم المطور في أعلى زاوية الصفحة */
     .developer-tag {
         text-align: left;
         direction: ltr;
@@ -26,7 +24,6 @@ st.markdown("""
         margin-bottom: -10px;
         padding-left: 5px;
     }
-    
     .main-title {
         background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
         color: white;
@@ -50,10 +47,9 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# عرض اسم المطور في أعلى اليسار قبل العنوان
 st.markdown('<div class="developer-tag">👤 المطور: عصوم</div>', unsafe_allow_html=True)
 
-# --- 3. قاعدة البيانات الرقمية (المجال الأول - الجزء أ) ---
+# --- 3. بداية قاعدة البيانات الرقمية (المجال الأول - الجزء أ) ---
 data = {
     "المجال الأول: بيئة التعامل مع الحاسوب": {
         "درس 1: تقنية معلومات والمفاهيم الأساسية": [
@@ -89,10 +85,9 @@ data = {
             {"question": "تثبيت نظام التشغيل (Installation) يعني:", "options": ["شراء جهاز جديد", "نقل ملفات النظام من الوسيط (USB/DVD) إلى القرص الصلب وتجهيزه", "حذف الفيروسات"], "answer": "نقل ملفات النظام من الوسيط (USB/DVD) إلى القرص الصلب وتجهيزه"},
             {"question": "ما هي الفائدة الأساسية من تقسيم القرص الصلب؟", "options": ["زيادة سرعة المعالج", "تنظيم الملفات وفصل النظام عن الملفات الشخصية لحمايتها", "تغيير ألوان الواجهة"], "answer": "تنظيم الملفات وفصل النظام عن الملفات الشخصية لحمايتها"},
             {"question": "نظام التشغيل مفتوح المصدر ومجاني بالكامل ويستخدمه المحترفون بكثرة هو:", "options": ["Windows", "Linux", "MacOS"], "answer": "Linux"},
-            {"question": "لكي يبدأ الحاسوب بقراءة الفلاش ديسك المثبت عليه النظام عند التشغيل, يجب ضبط إعدادات الـ:", "options": ["BIOS / Boot Menu", "لوحة التحكم", "برنامج الوورد"], "answer": "BIOS / Boot Menu"},
+            {"question": "لكي يبدأ الحاسوب بقراءة الفلاش ديسك المثبت عليه النظام عند التشغيل، يجب ضبط إعدادات الـ:", "options": ["BIOS / Boot Menu", "لوحة التحكم", "برنامج الوورد"], "answer": "BIOS / Boot Menu"},
             {"question": "ملفات النظام الهامة التي لا يجب حذفها تتواجد دائماً في المجلد المسمى:", "options": ["Windows", "Program Files", "Users"], "answer": "Windows"}
-        ]
-    },
+        ],
         "درس 4: لوحة التحكم (Control Panel)": [
             {"question": "لوحة التحكم (Panneau de configuration) هي أداة تُستخدم لـ:", "options": ["رسم الصور وتعديلها", "ضبط وإعداد خصائص النظام والعتاد والبرامج", "تصفح شبكة الإنترنت"], "answer": "ضبط وإعداد خصائص النظام والعتاد والبرامج"},
             {"question": "لتغيير لغة النظام وإضافة لوحة مفاتيح باللغة العربية، نتوجه في لوحة التحكم إلى خيار:", "options": ["الأجهزة والطابعات", "الساعة والمنطقة واللغة (Region & Language)", "حسابات المستخدمين"], "answer": "الساعة والمنطقة واللغة (Region & Language)"},
@@ -138,7 +133,7 @@ data = {
             {"question": "ما هو الهدف البيداغوجي الأساسي من استخدام ميزة دمج المراسلات في المؤسسات؟", "options": ["ربح الوقت والجهد عند إرسال وثائق موحدة لعدد كبير من الأشخاص", "تغيير نوع الخط وحجمه", "إدراج الصور والرسومات البيانية"], "answer": "ربح الوقت والجهد عند إرسال وثائق موحدة لعدد كبير من الأشخاص"},
             {"question": "عند إدراج فاصل مقاطع من نوع 'الصفحة التالية'، ما الذي يحدث للمستند؟", "options": ["يتم حذف الصفحة الحالية بالكامل", "ينتقل النص إلى صفحة جديدة وتبدأ مقطوعة جديدة مستقلة في التنسيق", "يتم حفظ الملف تلقائياً على القرص الصلب"], "answer": "ينتقل النص إلى صفحة جديدة وتبدأ مقطوعة جديدة مستقلة في التنسيق"},
             {"question": "الملف المخزن مسبقاً بتنسيقات وألوان معينة ويُستخدم كقاعدة لبناء مستندات جديدة بسرعة يسمى:", "options": ["مصدر البيانات", "القالب (Template)", "المقطع المفصول"], "answer": "القالب (Template)"},
-            {"question": "لنسخ نص محدد في برنامج Word باستخدام لوحة المفاتيح، نضغط على الاختصار:", "options": ["Ctrl + C", "Ctrl + V", "Ctrl + X"], "answer": "Ctrl + C"},
+            {"question": "لنسخ نص محدد في برنامج Word باستخدام لوحة المفافيح، نضغط على الاختصار:", "options": ["Ctrl + C", "Ctrl + V", "Ctrl + X"], "answer": "Ctrl + C"},
             {"question": "الاختصار المسؤول عن لصق (Paste) النص الذي تم نسخه أو قصه سابقاً هو:", "options": ["Ctrl + Z", "Ctrl + V", "Ctrl + S"], "answer": "Ctrl + V"},
             {"question": "عند الرغبة في التراجع عن آخر خطوة قمت بها أثناء الكتابة أو التنسيق، نضغط على الاختصار:", "options": ["Ctrl + Y", "Ctrl + S", "Ctrl + Z"], "answer": "Ctrl + Z"},
             {"question": "لحفظ التعديلات الجديدة داخل المستند بشكل سريع ومباشر، نستخدم الاختصار:", "options": ["Ctrl + S", "Ctrl + N", "Ctrl + P"], "answer": "Ctrl + S"}
@@ -195,33 +190,120 @@ data = {
         ]
     }
 }
-    "المجال الثالث: تقنيات الويب": {
-        "درس 1: المتصفح ومحركات البحث": [
-            {"question": "ما هو الجزء التابع لمحرك البحث المسؤول عن تصفح شبكة الإنترنت بشكل تلقائي لجمع وفحص الصفحات الجديدة وتخزينها؟", "options": ["برنامج العنكبوت (Spider / Crawler)", "برنامج المفهرس (Indexer)", "البريد الإلكتروني"], "answer": "برنامج العنكبوت (Spider / Crawler)"},
-            {"question": "البرنامج المثبت على جهازك والذي تستخدمه لفتح وعرض صفحات الويب (مثل Google Chrome) يسمى:", "options": ["محرك بحث", "متصفح إنترنت (Web Browser)", "برنامج بريد إلكتروني"], "answer": "متصفح إنترنت (Web Browser)"},
-            {"question": "الجزء في محرك البحث الذي يقوم بترتيب الكلمات والصفحات المجمعة وتصنيفها في قاعدة بيانات ضخمة يسمى:", "options": ["برنامج المفهرس (Indexer)", "برنامج العنكبوت", "المتصفح المحلي"], "answer": "برنامج المفهرس (Indexer)"},
-            {"question": "الموقع الإلكتروني المتخصص الذي يتيح للمستخدم كتابة كلمات دليلة للبحث عن معلومات وسط ملايين الصفحات (مثل موقع Google) يسمى:", "options": ["محرك البحث (Search Engine)", "المتصفح", "الشبكة المحلية LAN"], "answer": "محرك البحث (Search Engine)"},
-            {"question": "أي مما يلي يُعد مثالاً حقيقياً على 'متصفح إنترنت'؟", "options": ["Google Search", "Microsoft Edge / Mozilla Firefox / Safari", "Gmail"], "answer": "Microsoft Edge / Mozilla Firefox / Safari"},
-            {"question": "تسمى عملية حفظ رابط موقع إلكتروني أعجبك في المتصفح للوصول إليه بسرعة لاحقاً بـ:", "options": ["الإشارات المرجعية / المفضلة (Bookmarks)", "التاريخ (History)", "التحميلات"], "answer": "الإشارات المرجعية / المفضلة (Bookmarks)"},
-            {"question": "التبويب أو السجل داخل المتصفح الذي يعرض قائمة بالمواقع التي قمت بزيارتها سابقاً بالوقت والتاريخ يسمى:", "options": ["المفضلة", "التاريخ أو السجل (History)", "إجراءات الأمان"], "answer": "التاريخ أو السجل (History)"},
-            {"question": "ما هو دور قاعدة بيانات محرك البحث (Search Engine Database)؟", "options": ["تخزين النصوص والصور والفهارس الخاصة بالصفحات لتسريع عملية بحث المستخدم", "توليد الطاقة الكهربائية لخوادم الإنترنت", "حذف الفيروسات تلقائياً من جهازك"], "answer": "تخزين النصوص والصور والفهارس الخاصة بالصفحات لتسريع عملية بحث المستخدم"},
-            {"question": "عند الرغبة في البحث عن عبارة أو جملة دقيقة ومحددة بالترتيب في محرك البحث، يُفضل وضعها بين:", "options": ["علامتي تنصيص (\" \")", "قوسين كبيرين [ ]", "علامات الاستفهام ؟؟"], "answer": "علامتي تنصيص (\" \")"},
-            {"question": "البروتوكول الآمن والمشفر الذي يظهر في بداية عناوين المواقع الإلكترونية الموثوقة لحماية البيانات يرمز له بـ:", "options": ["HTTP", "HTTPS", "FTP"], "answer": "HTTPS"}
-        ],
-        "درس 2: البريد الإلكتروني (Email)": [
-            {"question": "أي مما يلي يمثل البنية الصحيحة والكاملة لعنوان بريد إلكتروني رسمي؟", "options": ["://gmail.com", "username@gmail.com", "://username.com"], "answer": "username@gmail.com"},
-            {"question": "من إيجابيات البريد الإلكتروني الأساسية مقارنة بالبريد التقليدي الملموس:", "options": ["السرعة الفائقة في الإرسال ومجانية الخدمة وإرفاق الملفات", "أنه يعمل بالكامل بدون حاسوب", "أنه لا يحتاج إلى صياغة عنوان"], "answer": "السرعة الفائقة في الإرسال ومجانية الخدمة وإرفاق الملفات"},
-            {"question": "الرمز الأساسي الواجب توفره في أي عنوان بريد إلكتروني للفصل بين اسم المستخدم واسم الخادم هو:", "options": ["#", "$", "@"], "answer": "@"},
-            {"question": "ما هي الخطوة الأساسية الأولى التي تمكنك من الاستفادة من خدمات البريد الإلكتروني وإرسال الرسائل؟", "options": ["شراء طابعة جديدة للمخبر", "إنشاء حساب إلكتروني جديد (Sign up / Create account) على أحد الخوادم", "تقسيم القرص الصلب"], "answer": "إنشاء حساب إلكتروني جديد (Sign up / Create account) على أحد الخوادم"},
-            {"question": "المجلد أو القسم داخل البريد الإلكتروني الذي تتجمع فيه كافة الرسائل الجديدة الواردة إليك من الآخرين يسمى:", "options": ["العلبة الواردة (Inbox)", "الرسائل المرسلة (Sent)", "المسودات (Drafts)"], "answer": "العلبة الواردة (Inbox)"},
-            {"question": "عند صياغة رسالة بريد إلكتروني، يُكتب موضوع الرسالة أو عنوانها المختصر داخل الخانة المسمواة:", "options": ["إلى (To)", "الموضوع (Subject)", "نسخة كربونية (Cc)"], "answer": "الموضوع (Subject)"},
-            {"question": "الخانة التي نكتب فيها البريد الإلكتروني للشخص المستهدف الذي نريد إرسال الرسالة إليه مباشرة هي:", "options": ["إلى (To)", "الموضوع", "المرفقات"], "answer": "إلى (To)"},
-            {"question": "تسمى عملية ربط ملف خارجي (مثل صورة أو مستند Word أو pdf) مع رسالة البريد الإلكتروني بـ:", "options": ["إدراج قالب", "إرفاق ملف (Attachment)", "الارتباط التشعبي"], "answer": "إرفاق ملف (Attachment)"},
-            {"question": "من سلبيات البريد الإلكتروني التي يجب الحذر منها بيداغوجياً وأمنياً:", "options": ["استقبال رسائل عشوائية وإعلانية مزعجة قد تحتوي على فيروسات (Spam)", "أنه بطيء جداً في الوصول", "أنه يتطلب دفع مبالغ مالية عند كل إرسال"], "answer": "استقبال رسائل عشوائية وإعلانية مزعجة قد تحتوي على فيروسات (Spam)"},
-            {"question": "المجلد الذي تحفظ فيه الرسائل التي قمت بكتابتها ولم تقم بإرسالها بعد لكي تعود إليها لاحقاً يسمى:", "options": ["المسودات (Drafts)", "البريد المزعج (Spam)", "العلبة الواردة"], "answer": "المسودات (Drafts)"}
-        ]
-    }
-}
+# --- 4. تهيئة ذاكرة الجلسة التفاعلية (session_state) ---
+if "step" not in st.session_state:
+    st.session_state.step = "main"
+    st.session_state.selected_field = None
+    st.session_state.selected_lesson = None
+    st.session_state.current_q = 0
+    st.session_state.score = 0
 
+# --- 5. الواجهة الأولى: الشاشة الرئيسية (اختيار المجال الدراسي) ---
+if st.session_state.step == "main":
+    st.markdown("""
+        <div class="main-title">
+            <h1 style="margin:0; font-size: 28px; font-weight: bold;">⚡ المنصة الرقمية لتحدي المعلوماتية ⚡</h1>
+            <p style="margin:5px 0 0 0; font-size: 16px; opacity: 0.9;">مرحباً بك! اختر مجالاً دراسياً لتحدي معلوماتك وتغيير الواجهة</p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("<h3 style='text-align: right; color: #1e3c72;'>📌 الخطوة 1: اختر المجال الدراسي المستهدف:</h3>", unsafe_allow_html=True)
+    st.write("")
+    
+    for field_name in data.keys():
+        if st.button(f"📂 {field_name}", use_container_width=True):
+            st.session_state.selected_field = field_name
+            st.session_state.step = "lessons"
+            st.rerun()
 
+# --- 6. الواجهة الثانية: شاشة عرض دروس المجال المختار ---
+elif st.session_state.step == "lessons":
+    st.markdown(f"""
+        <div class="main-title">
+            <h1 style="margin:0; font-size: 24px; font-weight: bold;">📖 {st.session_state.selected_field}</h1>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("<h3 style='text-align: right; color: #1e3c72;'>📌 الخطوة 2: اختر الدرس الذي ترغب في مراجعته الآن:</h3>", unsafe_allow_html=True)
+    st.write("")
+    
+    lessons = data[st.session_state.selected_field]
+    for lesson_name in lessons.keys():
+        if st.button(f"📝 {lesson_name}", use_container_width=True):
+            st.session_state.selected_lesson = lesson_name
+            st.session_state.step = "quiz"
+            st.session_state.current_q = 0
+            st.session_state.score = 0
+            st.rerun()
+            
+    st.write("")
+    if st.button("⬅️ العودة للمجالات الرئيسية", type="secondary", use_container_width=True):
+        st.session_state.step = "main"
+        st.rerun()
 
+# --- 7. الواجهة الثالثة: شاشة التحدي التفاعلي (سؤال واحد في كل واجهة) ---
+elif st.session_state.step == "quiz":
+    questions_list = data[st.session_state.selected_field][st.session_state.selected_lesson]
+    total_q = len(questions_list)
+    q_index = st.session_state.current_q
+    
+    st.markdown(f"""
+        <div class="main-title" style="padding: 15px;">
+            <h2 style="margin:0; font-size: 20px;">✏️ تحدي: {st.session_state.selected_lesson}</h2>
+            <p style="margin:5px 0 0 0; font-size: 14px;">السؤال {q_index + 1} من أصل {total_q}</p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    q_data = questions_list[q_index]
+    st.markdown(f'<div class="question-box">{q_data["question"]}</div>', unsafe_allow_html=True)
+    
+    user_choice = st.radio("اختر الإجابة التي تراها صحيحة:", q_data["options"], key=f"quiz_q_{q_index}")
+    
+    st.write("---")
+    
+    if st.button("التالي ➡️", use_container_width=True):
+        if user_choice == q_data["answer"]:
+            st.session_state.score += 1
+            
+        if q_index + 1 < total_q:
+            st.session_state.current_q += 1
+            st.rerun()
+        else:
+            st.session_state.step = "result"
+            st.rerun()
+
+# --- 8. الواجهة الرابعة: شاشة النتيجة والتقييم النهائي ---
+elif st.session_state.step == "result":
+    questions_list = data[st.session_state.selected_field][st.session_state.selected_lesson]
+    total_q = len(questions_list)
+    final_score = st.session_state.score
+    percentage = (final_score / total_q) * 100
+    
+    st.markdown("""
+        <div class="main-title">
+            <h1 style="margin:0; font-size: 26px; font-weight: bold;">📊 لوحة النتائج والتقييم البيداغوجي</h1>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    st.write("")
+    
+    if percentage == 100:
+        st.success(f"🏆 مستوى عبقري ومبهر! العلامة كاملة: {final_score} من {total_q} (نسبة {percentage:.0f}%)")
+        st.balloons()
+    elif percentage >= 70:
+        st.info(f"✨ مستوى ممتاز! لقد نجحت بتفوق وأجبت على: {final_score} من {total_q} (نسبة {percentage:.0f}%)")
+        st.snow()
+    elif percentage >= 50:
+        st.warning(f"👍 مستوى مقبول (ناجح): {final_score} من {total_q} (نسبة {percentage:.0f}%) - نقترح إعادة المحاولة!")
+    else:
+        st.error(f"📚 تحتاج إلى مراجعة كراسك والتركيز أكثر. النتيجة الحالية: {final_score} من {total_q} (نسبة {percentage:.0f}%)")
+        
+    st.write("---")
+    
+    if st.button("🔄 العودة إلى الواجهة الرئيسية وتجربة تحدي آخر", use_container_width=True, type="primary"):
+        st.session_state.step = "main"
+        st.session_state.selected_field = None
+        st.session_state.selected_lesson = None
+        st.session_state.current_q = 0
+        st.session_state.score = 0
+        st.rerun()
